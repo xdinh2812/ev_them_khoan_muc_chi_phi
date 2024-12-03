@@ -1,0 +1,43 @@
+<odoo>
+    <record id="view_danh_muc_chi_phi_form" model="ir.ui.view">
+        <field name="name">khoan.muc.chi.phi.form</field>
+        <field name="model">khoan.muc.chi.phi</field>
+        <field name="arch" type="xml">
+            <form string="Thêm Khoản mục chi phí">
+                <sheet>
+                    <group>
+                        <field name="ma" required="1"/>
+                        <field name="ten" required="1"/>
+                        <field name="thuoc" required="1"/>
+                        <field name="dien_giai"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Cất" type="object" class="btn-primary" name="action_save"/>
+                    <button string="Cất và Thêm" type="object" class="btn-secondary" name="action_save_and_new"/>
+                    <button string="Hủy bỏ" type="object" class="btn-secondary" name="action_cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_danh_muc_chi_phi_tree" model="ir.ui.view">
+        <field name="name">khoan.muc.chi.phi.tree</field>
+        <field name="model">khoan.muc.chi.phi</field>
+        <field name="arch" type="xml">
+            <tree string="Danh mục chi phí">
+                <field name="ma"/>
+                <field name="ten"/>
+                <field name="thuoc"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_danh_muc_chi_phi" model="ir.actions.act_window">
+        <field name="name">Danh mục chi phí</field>
+        <field name="res_model">khoan.muc.chi.phi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_quan_ly_chi_phi" name="Quản lý chi phí" sequence="1" />
+    <menuitem id="menu_danh_muc_chi_phi" name="Danh mục chi phí" parent="menu_quan_ly_chi_phi" sequence="2" action="action_danh_muc_chi_phi"/>
+</odoo>
